@@ -2,7 +2,7 @@
 
 Personal portfolio website built with modern web technologies.
 
-**Live:** [Coming soon]
+**Live:** kaustuv.vercel.app
 
 ## Tech Stack
 
@@ -32,14 +32,6 @@ Personal portfolio website built with modern web technologies.
 - Photography
 - Contact
 
-## Getting Started
-
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
 
 ## Deployment
 
