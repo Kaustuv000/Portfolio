@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, Download } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 
 const links = [
@@ -55,6 +55,17 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+          </div>
+
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="/KaustuvDey_Resume.pdf"
+              download
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-medium rounded-full border border-accent/30 text-accent hover:bg-accent/10 transition-all duration-200"
+            >
+              <Download size={13} />
+              Resume
+            </a>
 
             <button
               onClick={toggle}
@@ -88,6 +99,14 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-3 md:hidden">
+            <a
+              href="/KaustuvDey_Resume.pdf"
+              download
+              className="p-2 rounded-full border border-border text-muted hover:text-accent hover:border-accent/30 transition-all duration-200"
+              aria-label="Download Resume"
+            >
+              <Download size={16} />
+            </a>
             <button
               onClick={toggle}
               className="p-2 rounded-full border border-border text-muted hover:text-foreground transition-all duration-200"

@@ -9,7 +9,7 @@ const publications = [
   {
     title:
       "A Review of Architectures, Techniques and Challenges of using Advanced Quantum Steganography for secure IoT Communication",
-    venue: "BIDA 2026",
+    venue: "Springer BIDA 03",
     publisher:
       "Scopus-indexed Springer Book Series — Smart Innovation, Systems and Technologies",
     abstract:
@@ -19,7 +19,7 @@ const publications = [
   {
     title:
       "Beyond Encryption: A Critical Examination of the Social and Ethical Impacts of Quantum Steganography",
-    venue: "FTNCT-08 — 8th Intl. Conf. on Futuristic Trends in Networking and Computing Technologies",
+    venue: "Elsevier FTNCT-08",
     publisher: "Elsevier — Procedia Computer Science",
     abstract:
       "Research focusing on quantum steganography (QS) is largely centered on its technical implementation as an emerging field. This emphasis on practical discussion leaves a significant gap in the literature on QS, as researchers neglect to discuss the broader societal and ethical implications of a new technology. The vast majority of technical studies often do not entertain the issue of relevant 'dual-use' implications of QS, or other aspects of functionality that may enable greater levels of personal privacy while also enabling covert communications that circumvent current security/monitoring mechanisms. This paper fills the gap in the literature by providing a broad evaluation of the implications to society of QS. When discussing implications, this study considers varied implications and rather than solely utilitarian or functional analysis, the paper considers various implications of the technology on individual privacy, government monitoring, digital autonomy, and access/disadvantage to information security. The principal contribution to the paper is an analysis of the causal implications. This paper also discusses the anticipated safety/risk implications to national security, intellectual property rights, and civil liberties, as well as the governance implications created by this new technology, and provides mitigation options.",
@@ -38,11 +38,11 @@ const achievements = [
   },
   {
     icon: Cpu,
-    text: "IoT Start-Up funded under NGIN by Govt. of Tripura",
+    text: "IoT Start-Up funded (Rs. 3 lakhs) under NGIN by Govt. of Tripura",
   },
   {
     icon: Code,
-    text: "Specialist on Codeforces & 5-star in C on HackerRank",
+    text: "Specialist on Codeforces & 5-star in C on HackerRank — 500+ problems solved across platforms",
   },
 ];
 

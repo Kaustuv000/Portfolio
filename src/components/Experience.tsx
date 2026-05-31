@@ -9,22 +9,23 @@ const experiences = [
     location: "Bangalore, India",
     period: "Sept 2025 — Present",
     points: [
-      "Engineered architectural optimizations for cloud compute infrastructure, reducing pipeline runtime by 75% and driving $8,000+/year in cost savings.",
-      "Orchestrated containerized workloads via Vertex AI Custom Jobs, automating execution environments for improved compute efficiency.",
-      "Deployed 7+ production features and authored 80+ unit tests using CI/CD principles across major microservices.",
-      "Implemented infrastructure monitoring with PagerDuty and Slack, reducing on-call resolution times significantly.",
-      "Resolved 20+ critical production issues with hot-fixes across 5+ microservices.",
+      "Engineered architectural optimizations on caption & script generation pipelines for WBD movies and episodics, parallelizing compute stages — cutting runtime by 75% and saving $8,000+/yr in cloud cost.",
+      "Instrumented runtime task monitoring across content workflows which dynamically adjusts per-job limits based on asset duration — reducing on-call effort, false-negative alerts by 75%, and customer SLA breaches.",
+      "Designed a new localization-demand payload across the translation pipeline, aligning cross-functional team services (ingest, orchestrator, delivery) to ship a subtitle translation product with parallel multi-artifact support.",
+      "Provisioned scalable VM environments (GCP Workbenches) and orchestrated containerized inference workloads (OCR, LLM-based dialog annotation) via Vertex AI Custom Jobs, improving compute efficiency.",
+      "Shipped 7+ production features and 80+ unit tests under CI/CD, and integrated PagerDuty & Slack alerting — reducing on-call resolution times.",
+      "Diagnosed and hot-fixed 20+ cross-service production incidents spanning 5+ microservices, restoring pipeline availability and preventing downstream content-delivery delays.",
     ],
   },
   {
     company: "GAO Tek Inc.",
-    role: "Tech Team Lead",
+    role: "Software Engineering Intern — Team Lead",
     location: "Ontario, Canada",
     period: "Aug 2022 — Apr 2023",
     points: [
       "Optimized C code for 3 RFID tracking systems, improving accuracy by 85% and reducing errors by 40%.",
-      "Streamlined documentation for 40+ team members, cutting reporting time by 60%.",
-      "Trained and mentored 6 junior developers, achieving 100% certification in 3 months.",
+      "Automated the reporting workflow for a 40+ engineer team using Excel macros and Bitrix24 integrations, cutting reporting time by 60%.",
+      "Trained and mentored 6 junior developers in RFID and C programming, achieving 100% certification in 3 months.",
     ],
   },
   {
@@ -34,7 +35,7 @@ const experiences = [
     period: "Jan 2022 — Mar 2022",
     points: [
       "Developed AES encryption for JSON data in a Maven-based project, ensuring robust security.",
-      "Integrated REST APIs for secure communication and SQLite for encrypted data storage, improving query performance by 20%.",
+      "Integrated REST APIs for secure communication and SQLite for encrypted data storage, improving performance by 20%.",
     ],
   },
 ];

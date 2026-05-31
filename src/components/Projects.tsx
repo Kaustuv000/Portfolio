@@ -5,12 +5,12 @@ import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "On-Screen Text & Subtitle Detection Pipeline",
+    title: "Captioning Localization Quality Suite",
     tag: "Warner Bros. Discovery",
     description:
-      "Built a pipeline to detect, extract, and classify on-screen text (graphics, subtitles, credits) from videos using PaddleOCR + LLM post-processing. Evaluated on 70+ video-script pairs with 5,300+ annotated text blocks.",
+      "Developed a video-understanding pipeline to extract and classify on-screen text via scene text recognition with LLM post-processing, benchmarked on 70+ video-script pairs with 5,300+ annotated text blocks.",
     detail:
-      "Developed BIS removal module using Levenshtein + LCS string matching to improve WER evaluation accuracy by filtering burnt-in subtitles from ASR output.",
+      "Engineered a burnt-in-subtitle filtering module that cleans transcription output of visual-overlay noise while preserving genuine dialogue, unblocking reliable speech-to-text quality benchmarking.",
     tech: ["Python", "PaddleOCR", "LLM", "NLP"],
     link: null,
   },
