@@ -1,9 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Workflow, Sparkles, type LucideIcon } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
-const stack = [
+type StackItem = {
+  name: string;
+  icon?: string;
+  Icon?: LucideIcon;
+};
+
+type StackGroup = {
+  category: string;
+  items: StackItem[];
+};
+
+const stack: StackGroup[] = [
   {
     category: "languages",
     items: [
@@ -17,19 +29,25 @@ const stack = [
     ],
   },
   {
-    category: "devops & cloud",
+    category: "tools, devops & cloud",
     items: [
       { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
       { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
       { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" },
+      { name: "CI/CD", Icon: Workflow },
       { name: "GCP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
       { name: "JIRA", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" },
       { name: "GitHub Actions", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" },
+      { name: "PagerDuty", icon: "https://cdn.simpleicons.org/pagerduty/06AC38" },
+      { name: "QEMU", icon: "https://cdn.simpleicons.org/qemu/FF6600" },
     ],
   },
   {
     category: "data & ml",
     items: [
+      { name: "Airflow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg" },
+      { name: "Vertex AI", Icon: Sparkles },
+      { name: "BigQuery", icon: "https://cdn.simpleicons.org/googlebigquery/669DF6" },
       { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" },
       { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" },
       { name: "TensorFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" },
@@ -75,13 +93,21 @@ export default function TechStack() {
                     variants={itemVariants}
                   >
                     <div className="group flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-border bg-card/40 hover:border-accent/25 hover:bg-card/80 transition-all duration-300">
-                      <img
-                        src={item.icon}
-                        alt={item.name}
-                        width={20}
-                        height={20}
-                        className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                      />
+                      {item.icon ? (
+                        <img
+                          src={item.icon}
+                          alt={item.name}
+                          width={20}
+                          height={20}
+                          className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                        />
+                      ) : item.Icon ? (
+                        <item.Icon
+                          size={18}
+                          className="text-accent/70 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                          aria-hidden="true"
+                        />
+                      ) : null}
                       <span className="text-sm text-muted group-hover:text-foreground transition-colors duration-300">
                         {item.name}
                       </span>
