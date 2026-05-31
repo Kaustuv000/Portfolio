@@ -2,7 +2,7 @@
 
 Personal portfolio website built with modern web technologies.
 
-**Live:** [Coming soon]
+**Live:** [kaustuv-dey.vercel.app](https://kaustuv-dey.vercel.app)
 
 ## Tech Stack
 
@@ -44,3 +44,5 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Deployment
 
 Deployed on [Vercel](https://vercel.com). Push to `main` triggers automatic deployment.
+
+Set `NEXT_PUBLIC_SITE_URL` in the Vercel project (or a `.env.local` for local dev) to override the default site URL used for SEO metadata, sitemap, and OG tags.

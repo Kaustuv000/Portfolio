@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface Props {
@@ -14,12 +14,23 @@ export default function AnimatedSection({
   className = "",
   delay = 0,
 }: Props) {
+  const shouldReduceMotion = useReducedMotion();
+
+  const initial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 30 };
+  const whileInView = shouldReduceMotion
+    ? { opacity: 1 }
+    : { opacity: 1, y: 0 };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={initial}
+      whileInView={whileInView}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+      transition={{
+        duration: shouldReduceMotion ? 0.2 : 0.6,
+        delay: shouldReduceMotion ? 0 : delay,
+        ease: [0.21, 0.47, 0.32, 0.98],
+      }}
       className={className}
     >
       {children}

@@ -1,9 +1,19 @@
 "use client";
 
 import AnimatedSection from "./AnimatedSection";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Lock } from "lucide-react";
 
-const projects = [
+type Project = {
+  title: string;
+  tag: string;
+  description: string;
+  detail: string;
+  tech: string[];
+  link: string | null;
+  confidential?: boolean;
+};
+
+const selected: Project[] = [
   {
     title: "Captioning Localization Quality Suite",
     tag: "Warner Bros. Discovery",
@@ -13,6 +23,7 @@ const projects = [
       "Engineered a burnt-in-subtitle filtering module that cleans transcription output of visual-overlay noise while preserving genuine dialogue, unblocking reliable speech-to-text quality benchmarking.",
     tech: ["Python", "PaddleOCR", "LLM", "NLP"],
     link: null,
+    confidential: true,
   },
   {
     title: "VisionTrack: AI-Powered CCTV Search",
@@ -34,6 +45,9 @@ const projects = [
     tech: ["C", "Assembly", "QEMU", "Docker"],
     link: "https://github.com/Kaustuv000/MyKernel",
   },
+];
+
+const other: Project[] = [
   {
     title: "Sentiment Analysis — Amazon Reviews",
     tag: "ML / NLP",
@@ -76,6 +90,67 @@ const projects = [
   },
 ];
 
+function ProjectCard({ project, delay }: { project: Project; delay: number }) {
+  const Wrapper = project.link ? "a" : "div";
+  const linkProps = project.link
+    ? {
+        href: project.link,
+        target: "_blank" as const,
+        rel: "noopener noreferrer",
+      }
+    : {};
+
+  return (
+    <AnimatedSection delay={delay}>
+      <Wrapper
+        {...linkProps}
+        className="group relative flex flex-col h-full p-6 rounded-2xl border border-border bg-card/50 hover:border-accent/20 transition-all duration-300"
+      >
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <span className="font-mono text-[11px] text-accent/60 px-2 py-0.5 rounded-full border border-accent/15 bg-accent-dim">
+            {project.tag}
+          </span>
+          {project.confidential ? (
+            <span className="inline-flex items-center gap-1 font-mono text-[10px] text-muted/70 px-2 py-0.5 rounded-full border border-border bg-card/60 shrink-0">
+              <Lock size={10} />
+              Internal
+            </span>
+          ) : (
+            project.link && (
+              <ExternalLink
+                size={14}
+                className="text-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0 mt-0.5"
+              />
+            )
+          )}
+        </div>
+
+        <h3 className="text-base font-semibold mb-2 group-hover:text-accent transition-colors duration-200">
+          {project.title}
+        </h3>
+
+        <p className="text-sm text-muted leading-relaxed mb-1.5 flex-1">
+          {project.description}
+        </p>
+        <p className="text-xs text-muted/50 leading-relaxed mb-4">
+          {project.detail}
+        </p>
+
+        <div className="flex flex-wrap gap-1.5 mt-auto">
+          {project.tech.map((t) => (
+            <span
+              key={t}
+              className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-accent-dim text-accent/70"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </Wrapper>
+    </AnimatedSection>
+  );
+}
+
 export default function Projects() {
   return (
     <section id="projects" className="py-28 px-6">
@@ -84,66 +159,50 @@ export default function Projects() {
           <p className="font-mono text-sm text-accent mb-3 tracking-wider">
             Projects
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
             Things I&apos;ve built
           </h2>
+          <p className="text-muted text-sm mb-14">
+            A selection of work — from production pipelines to weekend systems
+            experiments.
+          </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {projects.map((project, i) => {
-            const Wrapper = project.link ? "a" : "div";
-            const linkProps = project.link
-              ? {
-                  href: project.link,
-                  target: "_blank" as const,
-                  rel: "noopener noreferrer",
-                }
-              : {};
-
-            return (
-              <AnimatedSection key={project.title} delay={i * 0.07}>
-                <Wrapper
-                  {...linkProps}
-                  className="group relative flex flex-col h-full p-6 rounded-2xl border border-border bg-card/50 hover:border-accent/20 transition-all duration-300"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <span className="font-mono text-[11px] text-accent/60 px-2 py-0.5 rounded-full border border-accent/15 bg-accent-dim">
-                      {project.tag}
-                    </span>
-                    {project.link && (
-                      <ExternalLink
-                        size={14}
-                        className="text-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0 mt-0.5"
-                      />
-                    )}
-                  </div>
-
-                  <h3 className="text-base font-semibold mb-2 group-hover:text-accent transition-colors duration-200">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-sm text-muted leading-relaxed mb-1.5 flex-1">
-                    {project.description}
-                  </p>
-                  <p className="text-xs text-muted/50 leading-relaxed mb-4">
-                    {project.detail}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 mt-auto">
-                    {project.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-accent-dim text-accent/70"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </Wrapper>
-              </AnimatedSection>
-            );
-          })}
+        <AnimatedSection>
+          <h3 className="text-xs font-mono text-accent/50 uppercase tracking-widest mb-5">
+            Selected work
+          </h3>
+        </AnimatedSection>
+        <div className="grid md:grid-cols-2 gap-5 mb-16">
+          {selected.map((project, i) => (
+            <ProjectCard key={project.title} project={project} delay={i * 0.07} />
+          ))}
         </div>
+
+        <AnimatedSection>
+          <h3 className="text-xs font-mono text-accent/50 uppercase tracking-widest mb-5">
+            Other projects
+          </h3>
+        </AnimatedSection>
+        <div className="grid md:grid-cols-2 gap-5">
+          {other.map((project, i) => (
+            <ProjectCard key={project.title} project={project} delay={i * 0.07} />
+          ))}
+        </div>
+
+        <AnimatedSection delay={0.2}>
+          <div className="mt-12 text-center">
+            <a
+              href="https://github.com/Kaustuv000?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors duration-200"
+            >
+              More on GitHub
+              <ExternalLink size={13} />
+            </a>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

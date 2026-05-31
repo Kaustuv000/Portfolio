@@ -13,33 +13,31 @@ export function useTheme() {
   return useContext(ThemeContext);
 }
 
+function readInitialTheme(): Theme {
+  if (typeof window === "undefined") return "dark";
+  const root = document.documentElement;
+  return root.classList.contains("light") ? "light" : "dark";
+}
+
 export default function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme") as Theme | null;
-    if (stored) {
-      setTheme(stored);
-    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      setTheme("light");
-    }
-    setMounted(true);
+    setTheme(readInitialTheme());
   }, []);
 
   useEffect(() => {
-    if (!mounted) return;
     const root = document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(theme);
-    localStorage.setItem("theme", theme);
-  }, [theme, mounted]);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      // localStorage can throw in private mode / SSR; safe to ignore
+    }
+  }, [theme]);
 
   const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
-
-  if (!mounted) {
-    return <div className="bg-[#101012] min-h-screen" />;
-  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggle }}>

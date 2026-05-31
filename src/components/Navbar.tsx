@@ -7,7 +7,7 @@ import { useTheme } from "./ThemeProvider";
 
 const links = [
   { label: "About", href: "#about" },
-  { label: "Education", href: "#education" },
+  { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Photography", href: "#photography" },
@@ -59,7 +59,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="/KaustuvDey_Resume.pdf"
+              href="/KaustuvDey_Resume_2026.pdf"
               download
               className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-medium rounded-full border border-accent/30 text-accent hover:bg-accent/10 transition-all duration-200"
             >
@@ -100,7 +100,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-3 md:hidden">
             <a
-              href="/KaustuvDey_Resume.pdf"
+              href="/KaustuvDey_Resume_2026.pdf"
               download
               className="p-2 rounded-full border border-border text-muted hover:text-accent hover:border-accent/30 transition-all duration-200"
               aria-label="Download Resume"

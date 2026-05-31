@@ -49,7 +49,7 @@ const itemVariants = {
 
 export default function TechStack() {
   return (
-    <section className="py-28 px-6">
+    <section id="skills" className="py-28 px-6">
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
           <p className="font-mono text-sm text-accent mb-3 tracking-wider">
